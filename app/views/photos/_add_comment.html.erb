@@ -1,0 +1,8 @@
+<% author = User.find(comment.user_id) %>
+
+<li> 
+	<a class="author" href="/photos/index/<%= author.id %>">
+		<%= author.first_name %> <%= author.last_name %>:
+	</a> 
+	<%= comment.comment %> <span class="comment_date"> Published on <%= comment.date_time %></span>
+</li>

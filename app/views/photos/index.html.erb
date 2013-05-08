@@ -1,0 +1,33 @@
+<% @title = "Photos of #{@user.first_name}" %>
+
+<p class="home"> <a href="/users/index/"> Home </a></p>
+
+<h2><%= @user.first_name %>'s Photos</h2>
+
+<% @photos.each do |photo| %>
+
+	<div>
+
+		<img src="/images/<%=photo.file_name%>" alt=""/> <br/>
+		<p> <span class="date">Date published:</span> <%= photo.date_time %> </p>
+
+		<div>
+			<h4 class="comment_title"> Comments </h4>
+			<% comments = Comment.where('photo_id = ?', photo.id).find(:all) %>
+
+			<% if comments.length > 0 then %>
+				<ul class="comments">
+					<% comments.each do |comment| %>
+						<%= render	:partial => "add_comment", :locals => {:comment => comment} %>
+					<%end%>
+				</ul>
+			<% else %>
+				<p class="no_comments"> No comments yet </p>
+			<% end %>
+		</div>
+
+	</div>
+
+	<hr />
+
+<% end %>
