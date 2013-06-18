@@ -1,0 +1,2 @@
+The security loophole is that the function @movies = Movie.find_by_sql("SELECT * from movies" + clause + ... is used and it allows the user to set the query value for clause, which
+allows the injector to add sql code to access different databases. A solution for this could be using find_by_genre(....) rather than using find_by_sql

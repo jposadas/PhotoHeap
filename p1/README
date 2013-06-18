@@ -1,0 +1,14 @@
+The parts of my solution that are reusable are the 
+UserFinder class that I defined in my javascript.
+
+You can make a call to UserFinder on different pages of the
+application, as long as you provide a input text field and
+two divs. The UserFinder class will then populate these two 
+divs with images that link to where the query word was found.
+It doesn't necessarily have to be looking for  a user, but for
+intance, looking for a word in the comments.
+
+**Note: Pictures are not duplicate withing their section. That means that
+		duplicates can exist between Tagged and Commented, but never within
+		them. This is because I believe there is a distinction between been 
+		tagged and been in comment.
