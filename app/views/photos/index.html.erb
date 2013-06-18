@@ -1,15 +1,46 @@
+<% if flash[:notice] then %>
+	<p> <%= flash[:notice] %> </p>
+<%end%>
+
 <% @title = "Photos of #{@user.first_name}" %>
 
 <p class="home"> <a href="/users/index/"> Home </a></p>
+
+<% if session[:loggedin] %>
+	
+	<p class="addphoto left5"> <a href="/photos/new">ADD A NEW PHOTO</a></p>
+
+<%end%>
+
 
 <h2><%= @user.first_name %>'s Photos</h2>
 
 <% @photos.each do |photo| %>
 
+	<% if @counter > 1 %>
+		
+		<div id="<%=photo.id%>">
+			<br />
+			<br />
+			<br />
+			<br />
+		</div>
+
+	<%end%>
+
+
+
 	<div>
 
 		<img src="/images/<%=photo.file_name%>" alt=""/> <br/>
-		<p> <span class="date">Date published:</span> <%= photo.date_time %> </p>
+
+		<% if session[:loggedin] %>
+			<p class="addtag left100"> <a href="/tags/new/<%=photo.id%>">TAG YOUR FRIENDS!</a></p>
+		<% end %>
+
+			<p class="seetags left200"> <a href="/tags/index/<%=photo.id%>">SEE WHO IS TAGGED!</a></p>
+
+		<p> <span class="date">Date published:</span> <%= photo.date_time.getlocal %> </p>
 
 		<div>
 			<h4 class="comment_title"> Comments </h4>
@@ -24,10 +55,18 @@
 			<% else %>
 				<p class="no_comments"> No comments yet </p>
 			<% end %>
+
+			<% if session[:loggedin] %>
+
+				<p class="addcomment"> <a href="/comments/new/<%=photo.id%>">ADD A COMMENT</a></p>
+		
+			<%end%>
+
 		</div>
 
 	</div>
 
 	<hr />
 
+	<% @counter = 2 %>
 <% end %>

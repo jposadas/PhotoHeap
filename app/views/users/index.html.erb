@@ -1,13 +1,42 @@
 <% @title = "Proj4 | Users" %>
+<% @jsfile = "userfinder.js" %>
 
-<h3> The following users have uploaded photos to this site: </h3>
 
-<ul class="users_list">
+<div class="userList">
 
-<% @users.each do |user| %>
+	<h3> The following users have uploaded photos to this site: </h3>
 
-	<li> <a href="/photos/index/<%= user.id %>"> <%= user.first_name %> <%= user.last_name %></a></li>
+	<ul class="users_list">
 
-<%end%>
+	<% @users.each do |user| %>
 
-</ul>
+		<li> <a href="/photos/index/<%= user.id %>"> <%= user.first_name %> <%= user.last_name %></a></li>
+
+	<%end%>
+
+	</ul>
+</div>
+
+<div class="searchBox">
+
+	<h3> FastSearch.</h3> 
+	<h5> Find who you are looking for. </h5>
+
+	<%= form_for "query-form" do |f|%>
+		
+		<%= f.text_field "query-user", :id => "photo-query",  :placeholder => "Search here ..." %>
+
+	<%end%>
+	<hr />
+	<div class="results">
+
+		<div id="tagsDiv"></div>
+	
+		<div id="commDiv"></div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	var finder = new UserFinder("photo-query", "tagsDiv", "commDiv");
+</script>

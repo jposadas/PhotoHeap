@@ -10,11 +10,10 @@
 	text-align: center;
 	color: #e2a742;
 	padding-top: 15px;
-
 }
 
 .header {
-	background-image: url('/images/header.jpg');
+	background-image: url('http://stanford.edu/~jposadas/images/header.jpg');
 	background-repeat: repeat no-repeat;
 	position: fixed;
 	width: 100%;
@@ -24,4 +23,35 @@
 	z-index: 100;
 
 }
+
+.login_logout {
+	position: relative;
+	color: white;
+	bottom: 15px;
+	float: right;
+	right: 15px;
+}
+
+.login_logout a:visited{
+	text-decoration: none;
+	color: white;
+}
+
+.login_logout a:link{
+	text-decoration: none;
+	color: white;
+}
+
+.welcome {
+	position: relative;
+	color: #66CCFF;
+	bottom: 15px;
+	float: left;
+	left: 15px;
+}
+
+.inline {
+	display: inline-block;
+}
+
 

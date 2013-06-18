@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501212139) do
+ActiveRecord::Schema.define(:version => 20130618102318) do
 
   create_table "comments", :force => true do |t|
     t.integer  "photo_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130501212139) do
     t.string   "file_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.binary   "image"
   end
 
   create_table "sessions", :force => true do |t|
@@ -40,11 +41,25 @@ ActiveRecord::Schema.define(:version => 20130501212139) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+  create_table "tags", :force => true do |t|
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "relx"
+    t.integer  "rely"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "photo_id"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "login"
+    t.string   "password_digest"
+    t.string   "salt"
   end
 
 end

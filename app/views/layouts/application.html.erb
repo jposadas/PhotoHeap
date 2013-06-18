@@ -6,6 +6,9 @@
   <title><%= @title ||  "Project 4"%></title>
   <%= stylesheet_link_tag :header%>
   <%= stylesheet_link_tag :body%>
+  <%= javascript_include_tag @jsfile%>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'/>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -16,6 +19,17 @@
 		<div class="name">
 			Juan Posadas-Castillo &copy; 2013
 		</div>
+		<% if session[:loggedin] %>
+
+			<div class="inline welcome"> Welcome, <%= session[:loggedin].first_name %>! </div>
+			<div class="inline login_logout"><a href="/users/logout"> Logout </a></div>
+
+		<%else%>
+
+			<div class="inline welcome"></div>
+			<div class="inline login_logout"> <a href="/users/logout"> Login </a></div>
+
+		<%end%>
 	</div>
 
 	

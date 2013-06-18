@@ -1,9 +1,6 @@
-ul {
-	font-family: helvetica;
-}
 
 img {
-	width: 250px;
+	width: 360px;
 	height: auto;
 	border: 2px solid black;
 	padding: 2px;
@@ -18,10 +15,6 @@ h2 {
 	font-family: helvetica;
 }
 
-p {
-	font-family: arial;
-}
-
 .date {
 	font-family: helvetica;
 	font-size: 20px;
@@ -31,11 +24,11 @@ p {
 
 .comments {
 	list-style: none;
+	font-size: 15px;
 }
 
 .comments li {
 	padding: 5px 0;
-	font-family: "Trebuchet MS", helvetica;
 }
 
 .comment_title {
@@ -77,6 +70,152 @@ a:link {
 .no_comments {
 	padding-left: 30px;
 	font-family: arial;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.comment_create
+{
+	color: #CC6600;
+	padding-left: 10px;
+}
+
+.comment_textarea
+{
+	width: 600px;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	font-size: 13px;
+}
+
+.left5 {
+	padding-left: 5px;
+}
+
+.left200 {
+	padding-left: 200px;
+}
+
+.notext
+{
+	font-size: 12px;
+	color: blue;
+}
+
+.addcomment
+{
+	font-family: arial;
+	font-size: 12px;
+	padding-left: 100px;
+}
+
+.addcomment a:link a:visited{
+	color: green;
+}
+
+.addcomment a:visited {
+	color: green;
+}
+
+.addphoto
+{
+	font-size: 13px;
+}
+
+.left100 {
+	padding-left: 100px;
+}
+
+.addtag {
+	font-size: 15px;
+}
+
+.addtag a:link {
+	color: blue;
+}
+
+.addtag a:visited {
+	color: blue;
+}
+
+#container {
+	position: relative;
+	display: inline-block;
+	/*border: 1px solid blue;*/
+}
+
+#feedback {
+	position: absolute;
+	border: 3px solid #DCDCDC;
+	visibility: hidden;
+}
+
+#image {
+	margin: 0px;
+	padding: 0px;
+}
+
+.seetags {
+	font-size: 15px;
+}
+
+.seetags a:link {
+	color: #CC6600;
+}
+
+.seetags a:visited {
+	color: #CC6600;
+}
+
+#personTagged {
+	font-size: 18px;
+	color: #0099CC;
+	padding-left: 50px;
+}
+
+.tagDisplay {
+	position: absolute;
+	border: 3px solid #DCDCDC;
+}
+
+.taggedName {
+
+	font-size: 20px;
+	color: #FF00FF;
+}
+
+.userList {
+	position: relative;
+	float: left;
+}
+
+.searchBox {
+	position: relative;
+	float: left;
+/*	border: 1px solid black; */
+	margin-left: 200px;
+	padding: 20px;
+
+}
+
+#photo-query {
+
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	height: 30px;
+	width: 300px;
+	
+}
+
+.thumbnail {
+	height: 90px;
+	width: 70px;
+	border: 1px solid black;
+	padding: 1px;
 }
 
 
