@@ -1,0 +1,25 @@
+<% @title = "People in #{@user.first_name}'s Photo" %>
+<% @jsfile = "tagmaker.js" %>
+
+<p class="home"> <a href="/users/index/"> Home </a></p>
+
+<h2>People in <%= @user.first_name %>'s Photo</h2>
+
+
+<p id="personTagged"></p>
+
+<div id="container">
+
+
+	<img id="image" src="/images/<%=@photo.file_name%>" alt=""/> <br/>
+
+	<% @tags.each do |tag| %>
+		<script type="text/javascript">
+			GenerateTag("container", "personTagged", <%=tag.relx%>, <%=tag.rely%>, <%=tag.width%>,<%=tag.height%>, "<%= tag.user.fullname %>");
+		</script>
+	<% end %>
+
+</div>
+<br />
+
+<p> <span class="date left5">Date published:</span> <%= @photo.date_time.getlocal %> </p>

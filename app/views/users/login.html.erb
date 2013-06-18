@@ -1,0 +1,16 @@
+<% if flash[:notice] %>
+	<h5 class="notext left5"><strong><%= flash[:notice] %></strong></h5>
+<%end%>
+
+
+<%= form_for :user,:url => {:action => :post_login} do |f| %>
+	<label>Login name</label><br />
+	<%= f.text_field (:login)%><br />
+	<label>Password </label><br />
+	<%= f.password_field(:password)%><br />
+	<%= submit_tag "Login"%>
+<%end%>
+
+<p class="left5"> or </p>
+
+<h3> <a href="/users/new">Register a New User</a></h3>

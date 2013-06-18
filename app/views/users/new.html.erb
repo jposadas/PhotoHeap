@@ -1,0 +1,21 @@
+<h3> Register </h3>
+
+<% if flash[:notice] %>
+	<h5 class="notext left5"><strong><%= flash[:notice] %></strong></h5>
+<%end%>
+
+
+<%= form_for :user,:url => {:action => :create} do |f| %>
+	<label>First Name</label><br />
+	<%= f.text_field (:first_name)%><br />
+	<label>Last Name</label><br />
+	<%= f.text_field (:last_name)%><br />
+	<label>Login username </label><br />
+	<%= f.text_field (:login)%><br />
+	<label>Password </label><br />
+	<%= f.password_field(:password)%><br />
+	<label>Enter Password again </label><br />
+	<%= f.password_field (:password_confirmation)%><br />
+
+	<%= submit_tag "Register"%>
+<%end%>

@@ -1,0 +1,11 @@
+<p class="left5"> Upload a photo </p>
+
+<% if flash[:notice] %>
+	<p class="notext left5"> <%= flash[:notice] %></p>
+<%end%>
+
+<%= form_for @photo,:url => {:action => "create"} do |f| %>
+	<%= f.file_field :picture%><br />
+	<%= submit_tag "Upload"%>
+<%end%>
+

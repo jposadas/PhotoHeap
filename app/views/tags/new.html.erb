@@ -1,0 +1,37 @@
+<% @jsfile = "tagger.js" %>
+<% @title = "Tagging #{@user.first_name}'s Photo" %>
+
+<p class="home"> <a href="/users/index/"> Home </a></p>
+
+<h2>Tagging <%= @user.first_name %>'s Photo</h2>
+
+<p> <span class="date left5">Date published:</span> <%= @photo.date_time.getlocal %> </p>
+<div id="container">
+	<img id="image" src="/images/<%=@photo.file_name%>" alt=""/> <br/>
+	<div id="feedback"></div>
+</div>
+
+<br />
+
+<%= form_for :tag,:url => {:action => "create/#{@photo.id}"} do |f| %>
+	
+	Person that you want to tag: 
+	<%= f.select :user, options_for_select(@selectOptions) %>
+	<%= f.hidden_field :relX, 	:id => :relX %>
+	<%= f.hidden_field :relY, 	:id => :relY %>
+	<%= f.hidden_field :width, 	:id => :width %>
+	<%= f.hidden_field :height, :id => :height %>
+	<%= submit_tag "Tag!"%>
+<%end%>
+
+<script type="text/javascript">
+	var tagger = new Tagger("feedback", "container", "relX", "relY", "width", "height");
+</script>
+
+<% if flash[:notice] then %>
+	<p class="notext left5"> <%= flash[:notice] %> </p>
+<%end%>
+
+<br />
+<br />
+
